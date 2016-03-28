@@ -4,10 +4,10 @@
 
 ## Why?
 
-1. Clean, minimal, promise-based API.
-2. Respects your `$PATH`.
-3. Uses the most reliable branch [detection algorithm](http://stackoverflow.com/a/19585361/2990144).
-4. Gives you control in weird situations.
+ - Clean, minimal, promise-based API.
+ - Respects your `$PATH`.
+ - Uses the most reliable branch [detection algorithm](http://stackoverflow.com/a/19585361/2990144).
+ - Gives you control in weird situations.
 
 ## Install
 
