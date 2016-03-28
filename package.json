@@ -1,6 +1,6 @@
 {
   "name": "branch-name",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Get the current branch name or fallback to one",
   "homepage": "https://github.com/solladay/branch-name",
   "main": "index.js",
