@@ -2,7 +2,15 @@
 
 > Get the current branch name or fallback to one
 
-## Installation
+## Why?
+
+1. Clean, minimal, promise-based API.
+2. Respects your `$PATH`.
+3. Uses the most reliable branch [detection algorithm](http://stackoverflow.com/a/19585361/2990144).
+4. Gives you control in weird situations.
+
+## Install
+
 ````sh
 npm install branch-name --save
 ````
