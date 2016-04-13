@@ -1,8 +1,8 @@
 {
   "name": "branch-name",
   "version": "0.1.2",
-  "description": "Get the current branch name or fallback to one",
-  "homepage": "https://github.com/solladay/branch-name",
+  "description": "Get the current branch name or fallback to one.",
+  "homepage": "https://github.com/sholladay/branch-name",
   "main": "index.js",
   "author": {
     "name": "Seth Holladay",
@@ -20,6 +20,9 @@
     "email": "bugs@seth-holladay.com"
   },
   "license": "MPL-2.0",
+  "files": [
+    "index.js"
+  ],
   "dependencies": {
     "execa": "0.2.2"
   },
