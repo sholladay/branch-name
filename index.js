@@ -8,16 +8,15 @@ const
     ];
 
 function getBranch() {
-    return execa.shell('git symbolic-ref --short HEAD')
-        .then(function (data) {
-            return data.stdout;
-        });
+    return execa.shell('git symbolic-ref --short HEAD').then((data) => {
+        return data.stdout;
+    });
 }
 
 // Get the current branch name, unless one is not available, in which case
 // return the provided branch as a fallback.
 function assume(branchName) {
-    return getBranch().catch(function (err) {
+    return getBranch().catch((err) => {
 
         // Strip off common "fatal: " prefix.
         const problem = err.stderr.substring(7);
