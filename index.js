@@ -1,46 +1,51 @@
 'use strict';
 
-const
-    execa = require('execa'),
-    noBranchErrors = [
-        'Not a git repository',
-        'ref HEAD is not a symbolic ref'
-    ];
+const { exec } = require('child_process');
 
-function getBranch() {
-    return execa.shell('git symbolic-ref --short HEAD').then((data) => {
-        return data.stdout;
+const get = () => {
+    return new Promise((resolve, reject) => {
+        exec('git symbolic-ref --short HEAD', (err, stdout, stderr) => {
+            if (err) {
+                err.stderr = stderr;
+                reject(err);
+                return;
+            }
+            resolve(stdout.trimRight());
+        });
     });
-}
+};
 
 // Get the current branch name, unless one is not available, in which case
 // return the provided branch as a fallback.
-function assume(branchName) {
-    return getBranch().catch((err) => {
+const assume = (assumedName) => {
+    return get().catch((err) => {
+        const problem = err.stderr.substring('fatal; '.length);
 
-        // Strip off common "fatal: " prefix.
-        const problem = err.stderr.substring(7);
+        const noBranchErrors = [
+            'Not a git repository',
+            'ref HEAD is not a symbolic ref'
+        ];
 
-        function matchProblem(scenario) {
+        const matchProblem = (scenario) => {
             return problem.startsWith(scenario);
-        }
+        };
 
         if (noBranchErrors.some(matchProblem)) {
-            return branchName;
+            return assumedName;
         }
 
         throw err;
     });
-}
+};
 
 // Master is a nice fallback assumption because it is
 // the default branch name in git.
-function assumeMaster() {
+const assumeMaster = () => {
     return assume('master');
-}
+};
 
 module.exports = {
-    get : getBranch,
+    get,
     assume,
     assumeMaster
 };

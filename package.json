@@ -10,7 +10,7 @@
     "email": "me@seth-holladay.com"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "xo"
   },
   "repository": {
     "type": "git",
@@ -20,12 +20,16 @@
     "url": "https://github.com/sholladay/branch-name/issues",
     "email": "me@seth-holladay.com"
   },
+  "engines": {
+    "node": ">=6"
+  },
   "license": "MPL-2.0",
   "files": [
     "index.js"
   ],
-  "dependencies": {
-    "execa": "0.2.2"
+  "devDependencies": {
+    "eslint-config-tidy": "0.3.0",
+    "xo": "0.16.0"
   },
   "keywords": [
     "git",
@@ -33,5 +37,8 @@
     "name",
     "meta",
     "version"
-  ]
+  ],
+  "xo": {
+    "extend": "tidy"
+  }
 }

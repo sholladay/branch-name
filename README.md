@@ -1,4 +1,4 @@
-# branch-name
+# branch-name [![Build status for branch-name on Circle CI.](https://img.shields.io/circleci/project/sholladay/branch-name/master.svg "Circle Build Status")](https://circleci.com/gh/sholladay/branch-name "Branch Name Builds")
 
 > Get the current branch name.
 
