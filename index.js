@@ -2,9 +2,10 @@
 
 const { exec } = require('child_process');
 
-const get = () => {
+const branchName = (option) => {
+    const config = Object.assign({}, option);
     return new Promise((resolve, reject) => {
-        exec('git symbolic-ref --short HEAD', (err, stdout, stderr) => {
+        exec('git symbolic-ref --short HEAD', { cwd : config.cwd }, (err, stdout, stderr) => {
             if (err) {
                 err.stderr = stderr;
                 reject(err);
@@ -17,8 +18,8 @@ const get = () => {
 
 // Get the current branch name, unless one is not available, in which case
 // return the provided branch as a fallback.
-const assume = (assumedName) => {
-    return get().catch((err) => {
+branchName.assume = (assumedName, option) => {
+    return branchName(option).catch((err) => {
         const problem = err.stderr.substring('fatal; '.length);
 
         const noBranchErrors = [
@@ -40,12 +41,8 @@ const assume = (assumedName) => {
 
 // Master is a nice fallback assumption because it is
 // the default branch name in git.
-const assumeMaster = () => {
-    return assume('master');
+branchName.assumeMaster = (option) => {
+    return branchName.assume('master', option);
 };
 
-module.exports = {
-    get,
-    assume,
-    assumeMaster
-};
+module.exports = branchName;
