@@ -47,6 +47,33 @@ branchName.assumeMaster().then((name) => {
 });
 ```
 
+## API
+
+### .get(option)
+
+#### option
+
+Type: `object`
+
+##### cwd
+
+Type: `string`<br>
+Default: `process.cwd()`
+
+The directory who's branch you want to return.
+
+### .assume(name, option)
+
+Same options as `.get()`, but will return `name` if not in a git repository or the HEAD is detached.
+
+### .assumeMaster(option)
+
+Same options as `.assume()` but always uses "master" as the fallback name.
+
+## Related
+
+ - [head-hash](https://github.com/sholladay/head-hash) - Get the current commit hash.
+
 ## Contributing
 
 See our [contributing guidelines](https://github.com/sholladay/branch-name/blob/master/CONTRIBUTING.md "The guidelines for participating in this project.") for more details.
