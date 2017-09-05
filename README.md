@@ -1,6 +1,6 @@
-# branch-name [![Build status for branch-name on Circle CI.](https://img.shields.io/circleci/project/sholladay/branch-name/master.svg "Circle Build Status")](https://circleci.com/gh/sholladay/branch-name "Branch Name Builds")
+# branch-name [![Build status for branch-name](https://img.shields.io/circleci/project/sholladay/branch-name/master.svg "Build Status")](https://circleci.com/gh/sholladay/branch-name "Builds")
 
-> Get the current branch name.
+> Get the current branch name
 
 ## Why?
 
@@ -49,7 +49,17 @@ branchName.assumeMaster().then((name) => {
 
 ## API
 
-### .get(option)
+### get(option)
+
+Returns the branch name that HEAD points to. Throws an error if not in a git repository or HEAD is not a branch.
+
+### assume(name, option)
+
+Similar to `.get()`, but will return `name` if not in a git repository or the HEAD is detached.
+
+### assumeMaster(option)
+
+Similar to `.assume()` but always uses "master" as the fallback name.
 
 #### option
 
@@ -60,32 +70,24 @@ Type: `object`
 Type: `string`<br>
 Default: `process.cwd()`
 
-The directory who's branch you want to return.
-
-### .assume(name, option)
-
-Same options as `.get()`, but will return `name` if not in a git repository or the HEAD is detached.
-
-### .assumeMaster(option)
-
-Same options as `.assume()` but always uses "master" as the fallback name.
+Directory whose branch you want determine.
 
 ## Related
 
- - [head-hash](https://github.com/sholladay/head-hash) - Get the current commit hash.
+ - [head-hash](https://github.com/sholladay/head-hash) - Get the current commit hash
 
 ## Contributing
 
-See our [contributing guidelines](https://github.com/sholladay/branch-name/blob/master/CONTRIBUTING.md "The guidelines for participating in this project.") for more details.
+See our [contributing guidelines](https://github.com/sholladay/branch-name/blob/master/CONTRIBUTING.md "Guidelines for participating in this project") for more details.
 
 1. [Fork it](https://github.com/sholladay/branch-name/fork).
 2. Make a feature branch: `git checkout -b my-new-feature`
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
-5. [Submit a pull request](https://github.com/sholladay/branch-name/compare "Submit code to this project for review.").
+5. [Submit a pull request](https://github.com/sholladay/branch-name/compare "Submit code to this project for review").
 
 ## License
 
-[MPL-2.0](https://github.com/sholladay/branch-name/blob/master/LICENSE "The license for branch-name.") © [Seth Holladay](http://seth-holladay.com "Author of branch-name.")
+[MPL-2.0](https://github.com/sholladay/branch-name/blob/master/LICENSE "License for branch-name") © [Seth Holladay](https://seth-holladay.com "Author of branch-name")
 
 Go make something, dang it.

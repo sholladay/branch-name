@@ -1,44 +1,48 @@
 {
-  "name": "branch-name",
-  "version": "0.1.7",
-  "description": "Get the current branch name.",
-  "homepage": "https://github.com/sholladay/branch-name",
-  "main": "index.js",
-  "author": {
-    "name": "Seth Holladay",
-    "url": "http://seth-holladay.com",
-    "email": "me@seth-holladay.com"
-  },
-  "scripts": {
-    "test": "xo"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:sholladay/branch-name.git"
-  },
-  "bugs": {
-    "url": "https://github.com/sholladay/branch-name/issues",
-    "email": "me@seth-holladay.com"
-  },
-  "engines": {
-    "node": ">=6"
-  },
-  "license": "MPL-2.0",
-  "files": [
-    "index.js"
-  ],
-  "devDependencies": {
-    "eslint-config-tidy": "^0.3.0",
-    "xo": "^0.16.0"
-  },
-  "keywords": [
-    "git",
-    "branch",
-    "name",
-    "meta",
-    "version"
-  ],
-  "xo": {
-    "extend": "tidy"
-  }
+    "name": "branch-name",
+    "version": "0.1.7",
+    "description": "Get the current branch name",
+    "homepage": "https://github.com/sholladay/branch-name",
+    "main": "index.js",
+    "author": {
+        "name": "Seth Holladay",
+        "url": "https://seth-holladay.com",
+        "email": "me@seth-holladay.com"
+    },
+    "scripts": {
+        "test": "xo && ava"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:sholladay/branch-name.git"
+    },
+    "bugs": {
+        "url": "https://github.com/sholladay/branch-name/issues",
+        "email": "me@seth-holladay.com"
+    },
+    "engines": {
+        "node": ">=8"
+    },
+    "license": "MPL-2.0",
+    "files": [
+        "index.js"
+    ],
+    "dependencies": {
+        "mkdirtemp": "^1.1.0"
+    },
+    "devDependencies": {
+        "ava": "^0.22.0",
+        "eslint-config-tidy": "^0.5.0",
+        "xo": "^0.18.2"
+    },
+    "keywords": [
+        "git",
+        "branch",
+        "name",
+        "meta",
+        "version"
+    ],
+    "xo": {
+        "extend": "tidy"
+    }
 }
